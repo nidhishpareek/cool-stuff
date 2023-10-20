@@ -1,18 +1,18 @@
 async function removeProduct(num){
-    
+    // element selector for initiate remove
     document.querySelector('#container > div > div._1Er18h > div > div._1YokD2._2GoDe3.col-12-12 > div:nth-child(1) > div > div:nth-child(2) > div > div.nZz3kj._1hNI6F > div._10vWcL.td-FUv.WDiNrH > div:nth-child(2)').click();
     
   return await setTimeout( ()=>{
+    // confirm removal
              document.querySelector('#container > div > div._2wQ56C._1h3i_z > div > div.row._1lPa3S > div > div._3dsJAO._24d-qY.FhkMJZ').click();
       console.log(`{Removed product ${num + 1}`)
 },  1000)  
 }
 
-async function fiveRemoveProduct(productNumber){
-    try{
-        for (const x of Array(productNumber).keys()){
-            await setTimeout(async ()=> await removeProduct(x), x*2000)
-        }
-    }catch(e){ throw new Error(e)}
+async function fiveRemoveProduct(numberOfProduct){
+    for (const x of Array(numberOfProduct).keys()){
+        await setTimeout(async ()=> await removeProduct(x), x*2000)
+    }
 }
+// replace 5 below with the number of products
 fiveRemoveProduct(5)
